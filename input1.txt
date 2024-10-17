@@ -1,0 +1,25 @@
+int main()
+  int n;
+  float a1,abc23,_ab,c;
+int b=0;
+int d=5.5;
+for(i=0;i<500;i++)//hfuyuew ch
+{
+
+a=a+b;
+
+if(a==b)
+b=c+d;//sdjfuwieufhl
+
+else
+c=d+c;
+
+cout >>c;
+
+cout >>a;
+}
+
+
+/*ielwrwyla
+seukri*/
+

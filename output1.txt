@@ -1,0 +1,64 @@
+Tokens Table
+Lexemes		Token Name		Attribute Value
+int		keyword		
+main		id		pointer to symbol table entry 1
+(		special symbol		opening bracket
+)		special symbol		closing bracket
+int		keyword		
+n		id		pointer to symbol table entry 2
+;		special symbol		semicolon
+float		keyword		
+a1		id		pointer to symbol table entry 3
+abc23		id		pointer to symbol table entry 4
+ab		id		pointer to symbol table entry 5
+c		id		pointer to symbol table entry 6
+;		special symbol		semicolon
+int		keyword		
+b		id		pointer to symbol table entry 7
+=		special symbol		eq
+0		number		int
+;		special symbol		semicolon
+int		keyword		
+d		id		pointer to symbol table entry 8
+=		special symbol		eq
+5.5		number		float
+;		special symbol		semicolon
+(		special symbol		opening bracket
+=		special symbol		eq
+0		number		int
+;		special symbol		semicolon
+<		special symbol		lt
+500		number		int
+;		special symbol		semicolon
+)		special symbol		closing bracket
+=		special symbol		eq
+;		special symbol		semicolon
+if		keyword		
+(		special symbol		opening bracket
+a		id		pointer to symbol table entry 9
+=		special symbol		eq
+=		special symbol		eq
+)		special symbol		closing bracket
+=		special symbol		eq
+;		special symbol		semicolon
+else		keyword		
+=		special symbol		eq
+;		special symbol		semicolon
+>		special symbol		gt
+>		special symbol		gt
+;		special symbol		semicolon
+>		special symbol		gt
+>		special symbol		gt
+;		special symbol		semicolon
+
+Symbol Table:
+Symbol		Token		Data Type	Pointer
+main		id		int		1
+n		id		int		2
+a1		id		float		3
+abc23		id		float		4
+ab		id		float		5
+c		id		float		6
+b		id		int		7
+d		id		int		8
+a		id		if		9

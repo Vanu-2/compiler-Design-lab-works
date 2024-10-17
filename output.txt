@@ -1,0 +1,72 @@
+int main()
+  int n;
+  float a1,abc23,_ab,c;
+int b=0;
+int d=5.5;
+for(i=0;i<500;i++)
+{
+
+a=a+b;
+
+if(a==b)
+b=c+d;
+
+else
+c=d+c;
+
+cout >>c;
+
+cout >>a;
+}
+
+
+
+
+
+
+Keyword list: int int float int int else 
+Symbol list with names:
+)   :   closing bracket
+;   :   semicolon
+;   :   semicolon
+=   :   eq
+;   :   semicolon
+=   :   eq
+;   :   semicolon
+=   :   eq
+;   :   semicolon
+<   :   lt
+;   :   semicolon
+)   :   closing bracket
+=   :   eq
+;   :   semicolon
+=   :   eq
+=   :   eq
+)   :   closing bracket
+=   :   eq
+;   :   semicolon
+=   :   eq
+;   :   semicolon
+>   :   gt
+>   :   gt
+;   :   semicolon
+>   :   gt
+>   :   gt
+;   :   semicolon
+
+Symbol Table:
+
+Variable	type 
+n 	 	 	int
+a1 	 	 	float
+abc23 	 	 	float
+ab 	 	 	float
+c 	 	 	float
+b 	 	 	int
+d 	 	 	int
+
+Number list with types:
+0 (int)
+5.5 (float)
+0 (int)
+500 (int)
