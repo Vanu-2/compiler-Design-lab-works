@@ -15,8 +15,14 @@ int main()
     string found_keywords[10];
     int found_count = 0;
 
-    const char symbol[] = {'#', '(', ')', ';', '<', '>', '='};
-    const string symbol_name[] = {"hash", "opening bracket", "closing bracket", "semicolon", "lt", "gt", "eq"};
+    const char symbol[] = {'#', '(', ')', ';', '<', '>'};
+    const string symbol_name[] = {"hash", "opening bracket", "closing bracket", "semicolon", "lt", "gt"};
+    const string operators[] = {"+", "-", "*", "/", "=", "&&", "||"};
+    const string operator_names[] = {"add", "sub", "mul",
+                                      "div", "assignment", "AND",
+                                      "OR"};
+    const int num_operators = sizeof(operators) / sizeof(operators[0]);
+
 
     struct Token {
         string lexeme;
@@ -24,7 +30,7 @@ int main()
         string attribute_value;
     };
 
-    Token tokens[100];  // To store the tokens
+    Token tokens[100];
     int token_count = 0;
 
     string variables[100];
@@ -88,7 +94,7 @@ int main()
                 {
                     if (!num.empty())
                     {
-                        // Classify the number as int or float
+
                         if (num.find('.') != string::npos)
                         {
                             num_types[ncount] = "float";
@@ -104,8 +110,9 @@ int main()
                         num.clear();
                     }
 
-                    if (!word.empty())
+                     if (!word.empty())
                     {
+
                         bool is_keyword = false;
                         for (int j = 0; j < num_keywords; j++)
                         {
@@ -121,6 +128,7 @@ int main()
 
                         if (!is_keyword && !current_type.empty())
                         {
+
                             bool found = false;
                             for (int v = 0; v < var_count; v++)
                             {
@@ -133,9 +141,10 @@ int main()
 
                             if (!found)
                             {
+
                                 variables[var_count] = word;
                                 var_types[var_count] = current_type;
-                                tokens[token_count++] = {word, "id", "pointer to symbol table entry " + to_string(var_count + 1)};
+                                tokens[token_count++] = {word, "id", "pointer to symbol table entry " };
                                 var_count++;
                             }
                         }
@@ -150,6 +159,16 @@ int main()
                             tokens[token_count++] = {string(1, c), "special symbol", symbol_name[k]};
                         }
                     }
+
+                    for (int op = 0; op < num_operators; op++)
+                    {
+                        if (line_without_comments.substr(i, operators[op].length()) == operators[op])
+                        {
+                            tokens[token_count++] = {operators[op], "operator", operator_names[op]};
+                            i += operators[op].length() - 1;
+                            break;
+                        }
+                    }
                 }
             }
         }
@@ -157,20 +176,20 @@ int main()
         inputfile.close();
     }
 
-    // Output Token Table
-    outputfile << "Tokens Table\n";
+
+    outputfile << "\nTokens Table\n\n";
     outputfile << "Lexemes\t\tToken Name\t\tAttribute Value\n";
     for (int i = 0; i < token_count; i++)
     {
-        outputfile << tokens[i].lexeme << "\t\t" << tokens[i].token_name << "\t\t" << tokens[i].attribute_value << "\n";
+        outputfile << tokens[i].lexeme << "\t ------\t" << tokens[i].token_name << "\t -----\t" << tokens[i].attribute_value << "\n";
     }
 
-    // Output Symbol Table
-    outputfile << "\nSymbol Table:\n";
-    outputfile << "Symbol\t\tToken\t\tData Type\tPointer\n";
+
+    outputfile << "\nSymbol Table:\n\n";
+    outputfile << "Symbol\t\tToken\t\tData Type""\t\t"<<"Pointer to Symbol Table Entry"<<"\n";
     for (int v = 0; v < var_count; v++)
     {
-        outputfile << variables[v] << "\t\tid\t\t" << var_types[v] << "\t\t" << (v + 1) << "\n";
+        outputfile << variables[v] << "\t\t----id"<<"-----\t\t" << var_types[v] << "-----\t\t"<<(v)<<endl;
     }
 
     outputfile.close();
